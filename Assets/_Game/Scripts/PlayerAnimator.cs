@@ -6,7 +6,7 @@ namespace _Game.Scripts
     {
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private Animator _animator;
-        
+
         private static readonly int IsRunnig = Animator.StringToHash("isRunnig");
 
         private void Update()

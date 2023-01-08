@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +8,7 @@ namespace _Game.Scripts
         [SerializeField] private float _offset;
 
         [SerializeField] private RectTransform _background;
-        
+
         public RectTransform _handle;
 
         public Vector2 InputDir { get; set; }
@@ -46,7 +45,8 @@ namespace _Game.Scripts
                 InputDir = new Vector2(position.x, position.y);
                 InputDir = InputDir.magnitude > 1 ? InputDir.normalized : InputDir;
 
-                _handle.anchoredPosition = new Vector2(InputDir.x * (bgSizeX / _offset), InputDir.y * (bgSizeY / _offset));
+                _handle.anchoredPosition =
+                    new Vector2(InputDir.x * (bgSizeX / _offset), InputDir.y * (bgSizeY / _offset));
             }
         }
     }
