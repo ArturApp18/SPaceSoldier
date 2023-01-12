@@ -31,6 +31,8 @@ namespace _Game.Scripts
         {
             if (_playerInput.isRotating)
             {
+                _startRotation = transform.rotation;
+                
                 Quaternion lookDirection = transform.rotation * Quaternion.LookRotation(_moveDirection);
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookDirection, 0.05f);
             }
