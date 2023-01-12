@@ -16,12 +16,12 @@ namespace _Game.Scripts
 
         private void FixedUpdate()
         {
-            CalculateMoveDirrection();
+            CalculateMoveDirection();
             UpdateRotation();
             UpdatePosition();
         }
 
-        private void CalculateMoveDirrection()
+        private void CalculateMoveDirection()
         {
             _moveDirection = new Vector3(_playerInput.horizontal * _speed, 0,
                 _playerInput.vertical * _speed);
@@ -31,18 +31,8 @@ namespace _Game.Scripts
         {
             if (_playerInput.isRotating)
             {
-                if (!_isRotating)
-                {
-                    _startRotation = transform.rotation;
-                    _isRotating = true;
-                }
-
                 Quaternion lookDirection = transform.rotation * Quaternion.LookRotation(_moveDirection);
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookDirection, 0.05f);
-            }
-            else
-            {
-                _isRotating = false;
             }
         }
 
